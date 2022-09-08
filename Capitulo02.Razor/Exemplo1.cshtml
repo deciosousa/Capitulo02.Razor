@@ -1,0 +1,111 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+
+        @*--------Criação DateTime (dinamicamente) ------
+
+        <p>Hoje é @DateTime.Now</p>*@
+
+
+        @*-------- Operação com variáveis ------
+
+        @{
+            var x = 10;
+            var y = 5;
+        }
+        A soma de @x com @y é @(x + y)
+        *@
+
+        @*-------- inibir comando com arrobas duplos  ------
+
+        <hr />
+        <p>
+            Contato: vendas@empresa.com.br
+        </p>
+        Escrevendo um arroba DateTime: @@DateTime
+        *@
+
+
+        @*-------- Estruturas de repetição (LOOP FOR) ------
+
+        @for (int i = 1; i <= 10; i++)
+        {
+            <p>
+                O valor de i é
+                <span>@i</span>
+            </p>
+        }
+        *@
+
+
+        @*-------- Estruturas de repetição (LOOP FOREACH) ------
+
+        @{
+            var numeros = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            foreach (int i in numeros)
+            {
+                <p>
+                    O valor de i é
+                    <span>@i</span>
+                </p>
+            }
+        }
+        *@
+
+
+        @*-------- Estruturas de repetição (LOOP WHILE) ------
+
+        @{ int i = 1;
+            while (i <= 10)
+            {
+                <p>
+                    O valor de i é
+                    <span>@i</span>
+                </p>
+                i = i + 1;
+            }
+        }
+        *@
+
+        @*-------- Estruturas Condicionais (IF - ELSE) ------
+
+        @if (DateTime.Now.DayOfWeek == DayOfWeek.Friday)
+        {
+            <span>
+                Hoje é sexta-feira.
+                Agora são @DateTime.Now.ToShortTimeString()
+            </span>
+        }
+        else
+        {
+            <span>
+                Hoje não é sexta
+            </span>
+        }
+        *@
+
+        @*-------- Estruturas Condicionais (switch) ------*@
+
+        @switch (DateTime.Now.Hour)
+        {
+            case 12:
+            case 13:
+                <p>Hora do Almoço</p>
+                break;
+            case 18:
+            case 19:
+                <p>Hora do Jantar</p>
+                break;
+        }
+
+    </div>
+</body>
+</html>
