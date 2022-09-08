@@ -11,7 +11,10 @@
 </head>
 <body>
     <div>
-        <form action="" method="post">
+
+        @* --------IsPost e Request ------
+
+            <form action="" method="post">
             <label>Nome:</label>
             <input name="nome" />
             <button type="submit">Enviar</button>
@@ -21,6 +24,41 @@
             var nome = Request.Form["nome"];
             <p>Bem vindo, @nome</p>
         }
+        *@
+
+        @* --- Conversão em tipos primitivos: IsInt(), IsDate(), IsBool(), IsDecimal(), IsFloat() ---*@
+
+        <form action="" method="post">
+
+            <label for="numero">Digite um Número</label>
+            <input type="text" id="numero" name="numero" />
+            <label for="data">Digite uma Data</label>
+            <input type="text" id="data" name="data" />
+            <br />
+            <button type="submit">Enviar</button>
+            @if (IsPost)
+            {
+                if (Request["Numero"].IsInt())
+                {
+                    <p>Número OK</p>
+                }
+                else
+                {
+                    <p>Número Inválido</p>
+                }
+                if (Request["Data"].IsDateTime())
+                {
+                    <p>Data OK</p>
+                }
+                else
+                {
+                    <p>Data Inválida!</p>
+                }
+            }
+        </form>
+
+
+
     </div>
 </body>
 </html>
